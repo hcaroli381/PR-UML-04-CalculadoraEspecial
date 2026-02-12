@@ -1,11 +1,7 @@
-package calculadora.app;
+package calculadora.dominio;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import calculadora.dominio.ResultadoAnalisis;
-import calculadora.dominio.TipoComando;
-import calculadora.dominio.TipoOperador;
 
 /**
  * Clase encargada de analizar la entrada del usuario. Detecta comandos o
