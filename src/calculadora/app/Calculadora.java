@@ -1,11 +1,15 @@
 package calculadora.app;
 
-import calculadora.dominio.Analizador;
-import calculadora.dominio.ResultadoAnalisis;
+import java.util.List;
 
 public class Calculadora {
-	Analizador analizador = new Analizador();
-	ResultadoAnalisis resultadoAnalisis = new ResultadoAnalisis();
+	private List<String> listaResultados;
+	private double resultadoActual;
+
+	public Calculadora(List<String> listaResultados, double resultadoActual) {
+		this.listaResultados = listaResultados;
+		this.resultadoActual = resultadoActual;
+	}
 
 	private double sumar(double double1, double double2) {
 		return double1 + double2;
@@ -23,15 +27,20 @@ public class Calculadora {
 		return double1 / double2;
 	}
 
-	private double calcular(String entrada) {
-		double entrada1,entrada2,resultado = 0;
-		char simbolo;
-		resultadoAnalisis = analizador.analizar(entrada, resultado);
-		resultado = switch(analizador.) {
-		case
-		}
-		
-		
+	public double getResultadoActual() {
+		return resultadoActual;
+	}
+
+	public void setResultadoActual(double resultadoActual) {
+		this.resultadoActual = resultadoActual;
+	}
+
+	public List<String> getListaResultados() {
+		return listaResultados;
+	}
+
+	public void setListaResultados(String operacion) {
+		listaResultados.add(operacion);
 	}
 
 }
