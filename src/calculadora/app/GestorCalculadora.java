@@ -35,7 +35,26 @@ public class GestorCalculadora {
 			case LIST -> {
 				if (calculadora.getListaResultados().isEmpty()) {
 					consola.escribirLinea("No hay historial para mostrar");
+				} else {
+					for (int i = 0; i < calculadora.getListaResultados().size(); i++) {
+						consola.escribirLinea((i + 1) + ". " + calculadora.getListaResultados().get(i).toString());
+					}
 				}
+				consola.escribirLinea("Resultado actual :" + calculadora.getResultadoActual());
+			}
+			case RESET -> {
+				calculadora.reset();
+				consola.escribirLinea("Reinicio de calculadora");
+			}
+			case RESULT -> {
+				consola.escribirLinea("Resultado actual :" + calculadora.getResultadoActual());
+			}
+			case QUIT -> {
+				consola.escribirLinea("Saliendo...");
+				quit = false;
+			}
+			case ERROR -> {
+				consola.escribirLinea("ERROR" + resultado.mensajeError());
 			}
 			}
 
