@@ -20,7 +20,9 @@ public class GestorCalculadora {
 		boolean quit = true;
 		String ejecucion;
 		double valorFinal;
-
+		consola.escribirLinea("Calculadora especial");
+		consola.escribirLinea("list,quit,reset,result");
+		consola.escribirLinea("----------------------");
 		do {
 			ejecucion = consola.leerTexto(">");
 			ResultadoAnalisis resultado = analizador.analizar(ejecucion, this.calculadora.getResultadoActual());
@@ -28,6 +30,7 @@ public class GestorCalculadora {
 			switch (resultado.comando()) {
 			case CALCULO -> {
 				valorFinal = calculadora.calcular(resultado.numeros(), resultado.operadores());
+				calculadora.setResultadoActual(valorFinal);
 				consola.escribirLinea("" + valorFinal);
 				calculadora.registrarOperacion(ejecucion, valorFinal);
 			}

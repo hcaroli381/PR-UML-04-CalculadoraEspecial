@@ -1,12 +1,16 @@
 package calculadora.app;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
 		Consola consola = new Consola();
-		Menu menu = new Menu(consola);
+		Calculadora calculadora = new Calculadora(new ArrayList<>(), 0);
+		GestorCalculadora gestor = new GestorCalculadora(consola, calculadora);
 
-		menu.mostrar();
+		gestor.ejecutar();
+		consola.cerrar();
 	}
 
 }

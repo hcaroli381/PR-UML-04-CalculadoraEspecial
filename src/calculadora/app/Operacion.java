@@ -26,4 +26,7 @@ public class Operacion {
 		this.resultado = resultado;
 	}
 
+	public String toString() {
+		return entrada;
+	}
 }
