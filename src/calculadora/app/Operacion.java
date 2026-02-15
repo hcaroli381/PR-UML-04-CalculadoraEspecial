@@ -1,15 +1,13 @@
-package calculadora.dominio;
-
-import java.util.List;
+package calculadora.app;
 
 public class Operacion {
-	Analizador analizador = new Analizador();
-	private String entrada;
 
+	private String entrada;
 	private double resultado;
 
-	public Operacion(String entrada) {
+	public Operacion(String entrada, double resultado) {
 		this.setEntrada(entrada);
+		this.setResultado(resultado);
 	}
 
 	public String getEntrada() {

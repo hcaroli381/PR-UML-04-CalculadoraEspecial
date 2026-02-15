@@ -2,40 +2,44 @@ package calculadora.app;
 
 import calculadora.dominio.Analizador;
 import calculadora.dominio.ResultadoAnalisis;
-import calculadora.dominio.TipoOperador;
 
 public class GestorCalculadora {
 
 	private Consola consola;
 	private Calculadora calculadora;
 	private Analizador analizador;
-	private ResultadoAnalisis resultadoAnalisis;
-	private TipoOperador tipoOperador;
 
 	public GestorCalculadora(Consola consola, Calculadora calculadora) {
 		this.consola = consola;
 		this.calculadora = calculadora;
+		this.analizador = new Analizador();
 	}
 
 	// ejecucion de la calculadora (enter)
 	public void ejecutar() {
-		boolean quit = false;
+		boolean quit = true;
 		String ejecucion;
-		double resultadoActual = 0;
-		double numero1, numero2;
+		double valorFinal;
+
 		do {
 			ejecucion = consola.leerTexto(">");
-			calculadora.setListaResultados(ejecucion);
-			resultadoAnalisis = analizador.analizar(ejecucion, resultadoActual);
-			numero1 = resultadoAnalisis.numeros().getFirst();
-			numero2 = resultadoAnalisis.numeros().getLast();
-			resultadoActual = switch (resultadoAnalisis.operadores()) {
-			case default -> 0;
-			};
-			if (ejecucion == "quit") {
-				quit = true;
+			ResultadoAnalisis resultado = analizador.analizar(ejecucion, this.calculadora.getResultadoActual());
+
+			switch (resultado.comando()) {
+			case CALCULO -> {
+				valorFinal = calculadora.calcular(resultado.numeros(), resultado.operadores());
+				consola.escribirLinea("" + valorFinal);
+				calculadora.registrarOperacion(ejecucion, valorFinal);
 			}
-		} while (quit = false);
+
+			case LIST -> {
+				if (calculadora.getListaResultados().isEmpty()) {
+					consola.escribirLinea("No hay historial para mostrar");
+				}
+			}
+			}
+
+		} while (quit);
 
 	}
 
