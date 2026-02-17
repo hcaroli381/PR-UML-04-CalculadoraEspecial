@@ -1,8 +1,0 @@
-Analizador
-ResultadosAnalizador
-TipoComando
-TipoOperador
-Consola
-GestorCalculadora
-Calculadora
-Operacion
