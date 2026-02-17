@@ -3,12 +3,21 @@ package calculadora.app;
 import calculadora.dominio.Analizador;
 import calculadora.dominio.ResultadoAnalisis;
 
+/**
+ * Gestion y uso de la clase calculadora
+ */
 public class GestorCalculadora {
 
 	private Consola consola;
 	private Calculadora calculadora;
 	private Analizador analizador;
 
+	/**
+	 * Constructor de la calculadora
+	 * 
+	 * @param consola     consola declarada
+	 * @param calculadora calculadora declarada
+	 */
 	public GestorCalculadora(Consola consola, Calculadora calculadora) {
 		this.consola = consola;
 		this.calculadora = calculadora;
@@ -16,6 +25,10 @@ public class GestorCalculadora {
 	}
 
 	// ejecucion de la calculadora (enter)
+	/**
+	 * Ejecucion de la calculadora, muestra de lista de contactos y uso de los
+	 * comandos
+	 */
 	public void ejecutar() {
 		boolean quit = true;
 		String ejecucion;

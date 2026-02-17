@@ -5,6 +5,10 @@ import java.util.List;
 
 import calculadora.dominio.TipoOperador;
 
+/**
+ * Clase que se encarga de realizar las operaciones y las funciones de sus
+ * comandos.
+ */
 public class Calculadora {
 	private List<Operacion> listaResultados;
 	private double resultadoActual;
@@ -14,6 +18,12 @@ public class Calculadora {
 		this.resultadoActual = resultadoActual;
 	}
 
+	/**
+	 * 
+	 * @param numeros,   lista de digitos de la operacion
+	 * @param operadores signos de la operacion
+	 * @return resultado de la operacion
+	 */
 	public double calcular(List<Double> numeros, List<TipoOperador> operadores) {
 		double acumulado = numeros.get(0);
 
@@ -64,16 +74,30 @@ public class Calculadora {
 		listaResultados.add(operacion);
 	}
 
+	/**
+	 * Registro de la operacion a la lista de la calculadora
+	 * 
+	 * @param entrada   String de la operacion
+	 * @param resultado resultado calculado
+	 */
 	public void registrarOperacion(String entrada, double resultado) {
 		this.resultadoActual = resultadoActual;
 		this.listaResultados.add(new Operacion(entrada, resultado));
 	}
 
+	/**
+	 * limpiar la calculadora
+	 */
 	public void reset() {
 		this.listaResultados.clear();
 		this.resultadoActual = 0.0;
 	}
 
+	/**
+	 * lista de operaciones guardada
+	 * 
+	 * @return lista de operaciones
+	 */
 	public List<Operacion> list() {
 		return listaResultados;
 	}
